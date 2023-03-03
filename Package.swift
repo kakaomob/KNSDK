@@ -1,28 +1,38 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.6
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
+let sdkName = "KNSDK"
+let version = "1.6.7"
+
 let package = Package(
-    name: "KNSDK",
+    name: sdkName,
+    platforms: [
+        .iOS(.v12)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "KNSDK",
-            targets: ["KNSDK"]),
+            targets: ["KNSDKBundle"])
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/kakaomob/KMLocationSDK.git", exact: Version(stringLiteral: "1.2.23")),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(
-            name: "KNSDK",
-            dependencies: []),
-        .testTarget(
-            name: "KNSDKTests",
-            dependencies: ["KNSDK"]),
-    ]
+        .binaryTarget(name: sdkName,
+                      url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/\(version)/KNSDK/KNSDK.xcframework.zip",
+                      checksum: "c03c82ad256f2cfe8558238bb7864f44a9af696c2501fbeccab744dd23a75f35"),
+        .target(name: "KNSDKBundle",
+                dependencies: [
+                    .target(name: sdkName),
+                    .product(name: "LocationFramework", package: "KMLocationSDK")
+                ]
+        )
+    ],
+    swiftLanguageVersions: [.v5]
 )
+
+
+
+
