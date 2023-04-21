@@ -17,12 +17,12 @@ let package = Package(
             targets: ["KNSDKBundle"])
     ],
     dependencies: [
-        .package(url: "https://github.com/kakaomob/KMLocationSDK.git", exact: Version(stringLiteral: "1.3.17")),
+        .package(url: "https://github.com/kakaomob/KMLocationSDK.git", exact: Version(stringLiteral: "1.3.20")),
     ],
     targets: [
         .binaryTarget(name: sdkName,
-                      url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/1.8.0-beta.1/KNSDK/KNSDK.xcframework.zip",
-                      checksum: "87a27cf4e0ba6fb450465d279d18ace36e8fd7b373a2414de48a132fbed604e0"),
+                      url: "https://admin-devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/1.8.0-beta.2/KNSDK/KNSDK.xcframework.zip",
+                      checksum: "138d8268dd9b2efd69edb65ac2078722cc152bb89389943bca7094500d7ac99d"),
         .binaryTarget(name: "Realm",
                       url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/1.8.0-beta.1/Realm/Realm.xcframework.zip",
                       checksum: "38d347d80465ad936f3770c1a732db99cdf4673b6c75179757e02a8a0d95868d"),
