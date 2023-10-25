@@ -16,7 +16,7 @@ let package = Package(
             targets: ["KNSDKBundle"])
     ],
     dependencies: [
-        .package(url: "https://github.com/kakaomob/KMLocationSDK.git", exact: Version(stringLiteral: "1.103.51")),
+        .package(url: "https://github.com/kakaomob/KMLocationSDK.git", exact: Version(stringLiteral: "1.103.52")),
     ],
     targets: getRealmFromNexus(),
     swiftLanguageVersions: [.v5]
