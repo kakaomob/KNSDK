@@ -8,7 +8,7 @@ let version = "1.10.1"
 let package = Package(
     name: sdkName,
     platforms: [
-        .iOS(.v12)
+        .iOS(.v15)
     ],
     products: [
         .library(
