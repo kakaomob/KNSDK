@@ -17,6 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/kakaomob/KMLocationSDK.git", exact: Version(stringLiteral: "1.103.82")),
+        .package(url: "https://github.com/kakaomob/RealmSwift.git", branch: "main"),
     ],
     targets: getRealmFromNexus(),
     swiftLanguageVersions: [.v5]
@@ -31,8 +32,7 @@ func getRealmFromNexus() -> [Target] {
                 dependencies: [
                     .target(name: sdkName),
                     .product(name: "KMLocationSDK", package: "KMLocationSDK"),
-                    .target(name: "Realm"),
-                    .target(name: "RealmSwift")
+                    .product(name: "RealmSwift", package: "RealmSwift"),
                 ]
         )
     ]
@@ -40,42 +40,42 @@ func getRealmFromNexus() -> [Target] {
 #if swift(>=5.10)
     // 15.3
         return targets + [
-            .binaryTarget(name: "Realm",
-                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/Realm/Realm.xcframework.zip",
-                          checksum: "87ea6d787b8296c0197ad47e2f76a873a2c54ea2226c786f78ba7ee62b581175"),
-            .binaryTarget(name: "RealmSwift",
-                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/15.3/RealmSwift.xcframework.zip",
-                          checksum: "bef383c42af99588928c9feb3ce54e3784e75e5a36ec428f744b1e821ab22f4d"),
+//            .binaryTarget(name: "Realm",
+//                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/Realm/Realm.xcframework.zip",
+//                          checksum: "87ea6d787b8296c0197ad47e2f76a873a2c54ea2226c786f78ba7ee62b581175"),
+//            .binaryTarget(name: "RealmSwift",
+//                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/15.3/RealmSwift.xcframework.zip",
+//                          checksum: "bef383c42af99588928c9feb3ce54e3784e75e5a36ec428f744b1e821ab22f4d"),
             ]
     #elseif swift(>=5.9.2)
     // 15.2, 15.1
         return targets + [
-            .binaryTarget(name: "Realm",
-                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/Realm/Realm.xcframework.zip",
-                          checksum: "87ea6d787b8296c0197ad47e2f76a873a2c54ea2226c786f78ba7ee62b581175"),
-            .binaryTarget(name: "RealmSwift",
-                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/15.2/RealmSwift.xcframework.zip",
-                          checksum: "5b375dee7abbdb23abd1247daf87c159a59d8e6f1d7ebbba6f7f8d82f77d470c"),
+//            .binaryTarget(name: "Realm",
+//                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/Realm/Realm.xcframework.zip",
+//                          checksum: "87ea6d787b8296c0197ad47e2f76a873a2c54ea2226c786f78ba7ee62b581175"),
+//            .binaryTarget(name: "RealmSwift",
+//                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/15.2/RealmSwift.xcframework.zip",
+//                          checksum: "5b375dee7abbdb23abd1247daf87c159a59d8e6f1d7ebbba6f7f8d82f77d470c"),
             ]
     #elseif swift(>=5.8.1)
     // 14.3.1
         return targets + [
-            .binaryTarget(name: "Realm",
-                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/Realm/Realm.xcframework.zip",
-                          checksum: "87ea6d787b8296c0197ad47e2f76a873a2c54ea2226c786f78ba7ee62b581175"),
-            .binaryTarget(name: "RealmSwift",
-                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/14.3.1/RealmSwift.xcframework.zip",
-                          checksum: "1b52a9eaf7c1ddc98b32b39dcb2a88739896cf710fb56e5fa37c11e1073be4ac"),
+//            .binaryTarget(name: "Realm",
+//                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/Realm/Realm.xcframework.zip",
+//                          checksum: "87ea6d787b8296c0197ad47e2f76a873a2c54ea2226c786f78ba7ee62b581175"),
+//            .binaryTarget(name: "RealmSwift",
+//                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/14.3.1/RealmSwift.xcframework.zip",
+//                          checksum: "1b52a9eaf7c1ddc98b32b39dcb2a88739896cf710fb56e5fa37c11e1073be4ac"),
             ]
     #elseif swift(>=5.7.2)
     // 14.2
         return targets + [
-            .binaryTarget(name: "Realm",
-                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/Realm/Realm.xcframework.zip",
-                      checksum: "87ea6d787b8296c0197ad47e2f76a873a2c54ea2226c786f78ba7ee62b581175"),
-        .binaryTarget(name: "RealmSwift",
-                      url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/14.2/RealmSwift.xcframework.zip",
-                      checksum: "d9bef3a83929c4c91b61080c8b78ba891d68e3cfc56a62fe079eae692d495d6c"),
+//            .binaryTarget(name: "Realm",
+//                          url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/Realm/Realm.xcframework.zip",
+//                      checksum: "87ea6d787b8296c0197ad47e2f76a873a2c54ea2226c786f78ba7ee62b581175"),
+//        .binaryTarget(name: "RealmSwift",
+//                      url: "https://devrepo.kakaomobility.com/repository/kakao-mobility-ios-knsdk-release/Realm/10.49.3/14.2/RealmSwift.xcframework.zip",
+//                      checksum: "d9bef3a83929c4c91b61080c8b78ba891d68e3cfc56a62fe079eae692d495d6c"),
         ]
     #else
         return []
